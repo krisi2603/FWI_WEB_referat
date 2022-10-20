@@ -1,0 +1,285 @@
+body {
+	background-color: #2F7489;
+}
+.page {
+	width: 1200px;
+	margin: 2em auto;
+	padding: 1em;
+	background-color: #C2E1EA;
+	border:10px solid #6E8898;
+	font-size: 110%
+}
+
+.menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1; 
+  top: 0;
+  left: 0;
+  background-color: #2E5266;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.menu-content {
+  position: relative;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+}
+
+.menu-content a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  border-bottom: dotted #6E8898 5px; 
+}
+
+.menu .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  padding: 2px 6px 2px 6px;
+  text-decoration: none;
+  color: white;
+}
+#openNavigation {
+	font-size:28px;
+	cursor:pointer;
+}
+
+a{
+	color: #80005d; 
+	text-decoration: none;
+}
+
+.menu a:hover, .menu a:focus, h3:hover, #graphic:hover, #sources:hover {
+	background-color: #420039;
+	color: white;
+}
+
+h1 {
+	margin: 0px;
+	text-align: center;
+	color: #420039;
+}
+#logo {
+	position: absolute;
+	top:55px;
+	right:200px;
+}
+h3, #graphic {
+	color: white;
+	background-color: #6E8898;
+	border: solid 2px ;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 5px 5px 5px 10px;
+	font-size: 22px;
+	cursor: pointer;
+}
+	
+h4 {
+	color: #5D2E46;
+	font-size: 20px;
+}
+
+.withBorder {
+	border: 3px solid #6E8898;
+}
+iframe {
+	 height: 500px;
+	 width: 900px; 
+	 border: 10px outset #6E8898;
+}
+
+table, th,td {
+	border: 2px solid #6E8898;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 5px;
+}
+table {
+	width: 60%;
+	height: 180px;
+	margin-right: 20%;
+	margin-left: 20%;
+}
+
+p, code {
+	white-space: pre-line;
+}
+
+/**/
+#infoTable {
+	text-align: center;
+	border: solid 3px #6E8898;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #F7F7FF;
+	padding-top: 30px;
+	margin-right: 120px;
+	margin-left: 120px;
+}
+
+.tag {
+	-moz-border-radius: 15px;
+	border-radius:15px;
+	background: #F7F7FF;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin:3px;
+}
+
+#sourcediv {
+	background-color: #F7F7FF;
+	padding: 5px 8px 5px 8px;
+}
+#sources {
+	font-weight: bold;
+	font-size: 22px;
+	background-color: #6E8898;
+	color: white;
+	border: solid 2px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding-left: 20px;
+	margin-right: 1000px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.numSource {
+	font-size: 80%;
+}
+.characteristics {
+	font-weight: bold;
+	font-size: 18px;
+	color: #5D2E46;
+}
+.includedThings {
+	text-align: center;
+}
+
+.includeSVG {
+	margin-left: 50px;
+}
+
+.caption {
+	font-family: serif, 'Times New Roman';
+	font-size: 90%;
+	margin-top: 0px;
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+}
+.caption2 {
+	font-family: serif, 'Times New Roman';
+	font-size: 90%;
+	margin-top: 0px;
+	font-style: italic;
+	font-weight: bold;
+	float: right;
+	margin-right: 135px;
+	margin-top: -35px;
+}
+.fixed {
+	margin-left: -500px;
+}
+
+.responsive {
+  max-width: 100%;
+}
+
+.description {
+	text-indent: 50px;
+}
+
+.pieceOfCode {
+	background-color: #F7F7FF;
+	width: 70%;
+	margin-right: 15%;
+	margin-left: 15%; 
+	margin-bottom: 10px;
+	border: solid 3px #6E8898;
+	-moz-border-radius: 10px;
+	border-radius: 10px;	
+}
+.example {
+	background-color: #F7F7FF;
+	border: solid 3px #6E8898;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	width: 60%;
+	margin-left: 0%;
+	margin-right: 40%;
+	margin-bottom: 10px;
+}
+
+.imp {
+	font-weight: bold;
+}
+
+.form {
+	float:right;
+	margin-top: -155px;
+	margin-right: 100px;
+}
+.animation {
+	float:right;
+	margin-top: -200px;
+	margin-right: 100px;
+}
+.attr {
+	color:#420039;
+	font-style: italic;
+	font-weight: bold;
+
+}
+
+#listch li {
+	margin-bottom: 15px;
+}
+#author {
+	color: #2F7489;
+	border: 5px solid #6E8898;
+	margin-top: 20px;
+	text-align: center;
+	padding: 10px 0px 10px 0px;
+}
+
+#back-top {
+	float:right;
+	bottom:70px;
+	position:fixed;
+	right:50px;
+	z-index:20000
+}
+#back-top span {
+	width:45px;
+	height:45px;
+	position:relative;
+	cursor:pointer;
+	transition:opacity .5s ease-in-out;
+	display:block;
+	border-radius:50%;
+	color: white;
+	background: #F7F7FF;
+	opacity:.7;
+	font-size:20px;
+	line-height:45px;
+	text-align:center;
+}
+#back-top span:before {
+	width:45px;
+	height:45px;
+	position:absolute;
+	display:block;
+}
+#back-top span:hover {
+	opacity:1
+}
