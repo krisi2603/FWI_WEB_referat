@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>
+		SVG в уеб
+	</title>
+	<link rel="stylesheet" type="text/css" href="css/referat_style.css"/>
+	<script src="javascript/referat_script.js"></script>
+</head>
+<body onload="main()">
+<main class="page">
+	<header>
+		<h1> Използване на SVG в уеб </h1>
+		<img id="logo" src="images/SVG_logo.svg" alt="SVG logo" class = "responsive" width="100px" height = "100px"/>
+		<span id="openNavigation" onclick="openNav()">&#9776; Съдържание </span>
+	</header>
+	
+
+	<nav id="myNav" class="menu">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  		<div class="menu-content">
+			<a href="#svginfo" onclick="closeNav()">Какво представлява SVG</a>
+			<a href="#graphic" onclick="closeNav()">Векторна и Растерна графика </a>
+			<a href="#whyuseit" onclick="closeNav()">Защо да използваме SVG </a>
+			<a href="#utilizefor" onclick="closeNav()">За какво се използва SVG </a>
+			<a href="#include" onclick="closeNav()">Как да добавим SVG в уеб страница </a>
+			<a href="#fig" onclick="closeNav()">Примерни SVG фигури</a>
+			<a href="#others" onclick="closeNav()">Други характеристики </a>
+			<a href="#tryexample" onclick="closeNav()">Изпробване на SVG код </a>
+			<a href="#sources"  onclick="closeNav()"> Източници </a>
+		</div>
+	</nav>
+	<section>
+		<header> <h3 id="svginfo"> Какво представлява SVG </h3> </header>
+		<article id="desc">
+			<p class="description"><span class = "imp">SVG (Scalable Vector Graphics)</span> е XML базиран формат за описване на векторни графики. Съдържа много различни елементи за дефиниране на формите, които желаем за нашето изображение, и ефекти, които да добавим към тези форми. За създаване на SVG изображения може да се използват редактори за векторни графики като Illustrator, <a href = "https://inkscape.org/" target="_blank">Inkscape</a>. SVG е уеб стандарт, който се препоръчва от W3C. Може да се интегрира с други W3C стандарти като DOM и XSL. 
+			Първата версия на технологията e първоначално предложена през 1999г. Последната версия на пълната спецификация е <span class = "imp">SVG 1.1</span> от 2011 година. SVG 1.1 е вече широко поддържан от всички основни браузъри и устройства и е признат като HTML5 стандарт. Единствените браузъри, които не го поддържат са версии на Internet Explorer и някои стари версии на Android. <a href = "https://svgwg.org/svg2-draft/" target="_blank">SVG 2.0</a> е още в етап на разработка и приемане, тъй като още не се поддържа от браузърите. </p>
+		</article>
+	</section>
+
+	<section>
+		<header> <p id = "graphic" class = "imp"> Векторна и Растерна графика в уеб </p></header>
+		<article id = "typeGraphic">
+			<ul>
+				<li> <span class = "characteristics"> Растерни изображения </span> - дефинират се с помощта на мрежа от пиксели. Файлът с растерни изображения съдържа информация, показваща къде точно трябва да бъде поставен всеки пиксел и какъв точно цвят да бъде. Популярни растерни формати в уеб са: Bitmap (.bmp), PNG (.png), JPEG (.jpg) и GIF (.gif). </li>
+
+				<li> <span class = "characteristics"> Векторни изображения </span> - дефинират се с помощта на алгоритми. Файлът с векторни изображения съдържа дефиниции на форми и път, които компютърът може да използва, за да разбере как трябва да изглежда изображението когато се изобразява на екрана. Форматът SVG ни позволява да създаваме мощни векторни графики за използване в уеб мрежата. 
+				<span class="numSource"><a href="#s1">[1]</a></span></li>
+			</ul>
+
+			<p> Демо: <a href = "https://mdn.github.io/learning-area/html/multimedia-and-embedding/adding-vector-graphics-to-the-web/vector-versus-raster.html" target="_blank">Векторно изображение в сравнение с растерно </a> - увеличете размера на екрана, за да видите разликата. </p>
+		</article>
+	</section>
+
+	<section>
+		<header> <h3 id="whyuseit"> Защо да използваме SVG в уеб? Ползи.</h3> </header>
+		<article id="usage">
+			<header> <p>Ще изброим някои плюсове на използването на SVG. <span class="numSource"><a href ="#s2">[2]</a></span> </p></header>
+			<ul>
+				<li> <span class= "characteristics"> Резолюция </span>
+					<p> Най-голямото предимство на SVG e независимостта на резолюцията. Тъй като SVG файловете са векторна графика, може да променим размера им без да загубим качеството на изображението. Това е много полезно когато създаваме 'responsive' сайтове, които трябва да изглеждат добре и да работят в широк спектър от екранни размерности и устройва. </p>
+					<p> Като цяло SVGs имат по-гладък и отчетлив външен вид спрямо изображенията от други формати, независимо от размера. SVG изображенията могат да се принтират с <span class = "imp"> високо качество на всяка резолюция. </span> </p>
+					<p> На <span class = "caption">фигура1</span> може да се види разликата в качеството на изображението при двата дадени формата. </p>
+
+					<figure class = "includedThings"> 
+						<img src="images/bitmap_svg.jpg" alt="SVG vs bitmap"  class = "responsive withBorder" width="500px" height = "300px"/>
+						<figcaption class = "caption">Фигура 1. SVG и Bitmap</figcaption> 
+					</figure>
+				</li>
+
+				<li> <span class= "characteristics"> Размерът на файла. Скорост </span>
+					<p>За да се използват растерни изображения в 'responsive' уеб сайтове, трябва да се предоставят в най-големия размер, в който ще бъдат изобразени, тъй като при увеличаването им ще загубим качеството. В резултат се получават изображения, които са много по-големи от размера, при който се гледат, принуждавайки така браузърът да изтегли големи файлове. Колкото по-голям е размерът на файла толкова по-бавно се зареждат. </p>
+					<p> За разлика от тях, векторната графика е <span class= "imp">мащабируема</span>, така че може да използваме много малки по размери файлове, независимо от това колко големи тези изображения ще се наложи да се показват. Това оптимизира цялостното представяне (производителността) на сайта и скоростта на теглене. </p>
+					<p> При форматите като PNG, изображенията трябва да се посочат като външни източници, което води до увеличаване на HTTP заявките и понижаване на скоростта на сайта. SVGs са не само <span class = "imp">малки по размер файлове</span>, но могат да бъдат вградени в HTML, намалявайки заявките и <span class = "imp">увеличавайки скоростта на сайта</span>. </p>
+				</li>
+
+				<li> <span class= "characteristics"> Прилагане на CSS стилове. Анимация </span> 
+					<p> Можем лесно да добавим SVG директно в HTML страницата като вграден (inline) SVG. Предимството на това използване е, че няма да има нужда от HTTP заявка, която да извлече файла с изображението, тъй като графиките се рисуват от браузъра.
+					Също така ще <span class = "imp"> може да приложим стилове върху SVG изображението с CSS </span>, а не да променяме неща с графичен редактор. Както и ще <span class = "imp">можем да добавим анимации</span> - трансформации, преходи, върху SVG елемента с CSS. Има случаи, при които не може да се използва CSS за анимирането на SVGs, но тези случаи могат да бъдат покрити с JS - има JavaScript SVG библиотека <a href = "http://snapsvg.io" target="_blank">(snap.svg)</a>. </p>
+				</li>
+
+				<li> <span class= "characteristics"> Работа с DOM </span>
+					<p>SVGs имат DOM (Document Object Model), тоест <span class = "imp"> могат да използват методите на JS DOM</span>, така че е лесно да се манипулират и анимират елементите. За да преместим елемент просто трябва да променим координатите му. </p>
+				</li>
+				<li> SVG изображенията могат да <span class= "characteristics"> се създават и редактират с всякакъв текстов редактор. </span> </li>
+				<li> SVG изображенията могат да <span class= "characteristics"> се търсят, индексират, скриптират и компресират. </span> </li>
+			</ul>
+		</article>
+	</section>
+
+	<section>
+		<header><h3 id= "utilizefor"> За какво се използва SVG</h3> </header>
+		<article id="duse">
+			<p class="description"> SVGs не могат да заменят всички формати. Снимки, които изискват богати цветове трябва да са в JPG или PNG формат. Прости изображения като <span class = "imp"> икони, лога, графики, скици, диаграми</span> са подходящи да бъдат направени с SVG, тъй като се възползват от мащабируемостта и възможността за стилизиране с CSS. Може също така да създаваме визуални ефекти - преобразуване на формата, минаване от една форма в друга. SVG e подходящ за сложни интерфейси, които могат да бъдат интегрирани с уеб базирани приложения и богати интернет приложения, тъй като са леки, лесни за анимиране и всеки елемент може да улови потребителското взаимодействие. <span class="numSource"><a href="#s3">[3]</a></span> </p>
+			<p> На <span class = "caption">фигура2</span> логото е направено с SVG елементи. </p>
+
+			<figure class = "includedThings"> 
+				<img src="images/SVG_logo.svg" alt="SVG logo" class = "responsive" width="500px" height = "300px"/>
+				<figcaption class = "caption">Фигура 2. SVG лого </figcaption> 
+			</figure>
+		</article>
+	</section>
+
+	<section>
+		<header> <h3 id = "include"> Как да добавим SVG в уеб страница </h3> </header>
+		<article id ="inserts">
+			<p class="description"> Ще покажем няколко начина за вграждането на SVG в уеб страница. Някои от тях имат предимства, които могат да бъдат полезни в зависимост от това какво искате да постигнете, а някои не са препоръчителни за използване. <span class="numSource"><a href="#s4">[4]</a>, <a href="#s5">[5]</a></span> </p>
+
+			<article class="includeSVG">	
+				<h4> 1. SVG вграден в HTML5 страницата </h4>
+					<p> Един SVG елемент може да бъде добавен директно като код в рамките на HTML5 страницата, използвайки<span class = "tag">&lt;svg&gt;</span>тагa. Този метод работи във всички HTML5 браузъри и позволява използването на анимации, скриптове и CSS стилове. Подходящ за вмъкване на прости изображения или ако построяваме изображението, използвайки JavaScript, но иначе е по-добре да са в отделен файл, тъй като увеличава размера на HTML файла и ако искаме да използваме изображението на няколко места ще имаме повтаряне на код, което не е добре за поддръжката. </p>
+				 
+					<div class = "pieceOfCode">
+						<pre><code>&lt;body&gt; 
+						&lt;h1&gt;Embedded SVG&lt;/h1&gt 
+						&lt;svg width="300px" height="300px" xmlns="https://www.w3.org/2000/svg"&gt; 
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;text x="10" y="50" font-size="30"&gt;My SVG&lt;/text&gt; 
+						&lt;/svg&gt; 
+						&lt;/body&gt; </code></pre>
+					</div>
+					<p class="caption">Код 1. Вграден SVG код </p>
+
+				<h4> 2. Използване на &lt;object&gt; таг </h4>		
+					<p><span class = "tag">&lt;object&gt;</span>е един добър вариант за използване, ако искате да използвате SVG без да го слагате директно (вградено) в HTML файла. </p>
+
+					<div class = "pieceOfCode includedThings">
+						<pre> <code>&lt;object type="image/svg+xml" data="image.svg"&gt; Your browser does not support SVGs &lt;/object&gt; </code></pre>
+					</div>
+					<p class="caption">Код 2. SVG в &lt;object&gt; таг </p>
+
+				<h4> 3. Използване на &lt;img&gt; таг </h4>
+					<p> SVGs могат да бъдат добавяни в уеб страницата като всяко друго изображение. Ако запазим SVG като файл - image.svg, може директно да се ползва в<span class = "tag">&lt;img&gt;</span>тага. Не е най-използваният метод, тъй като от съображения за сигурност, браузърите ще деактивират SVG, скриптове, линкове и други типове интерактивности когато те са добавен в уеб страницата чрез<span class = "tag">&lt;img&gt;</span>таг. Също така IE9, Chrome и Safari няма да приложат дефинираните стилове за SVG, ако те са дефинирани в отделен CSS файл, което ни ограничава. </p>
+
+					<div class = "pieceOfCode includedThings">
+						<pre> <code> &lt;img src="image.svg" alt="Picture" height="65" width="68"/&gt; </code> </pre>
+					</div>
+					<p class="caption">Код 3. SVG в &lt;img&gt; таг </p>
+
+					<a href="https://codepen.io/chriscoyier/pen/lCEux" target="_blank"> Вмъкнато изображение с &lt;img&gt;</a>, с променени размери, използвайки CSS. <span class="numSource"><a href="#s7">[7]</a></span>
+
+				<h4> 4. Използване в background-image </h4>
+					<p> SVGs могат да бъдат използвани като CSS background за всеки елемент. Както при<span class = "tag">&lt;img&gt;</span>тага, SVG, скриптове, линкове и други типове интерактивности ще бъдат деактивирани когато използвате този метод. Предимствата на SVG, като яснота на всеки размер, се запазват с този метод. 
+					С <span class="attr"> background-size </span> свойството може да си подсигурим, че изображението ще се събере и няма да се отреже като зададем размера на изображението. </p>
+
+					<div class = "pieceOfCode includedThings">
+						<pre> <code> #myelement { background-image: url(image.svg); } </code> </pre>
+					</div>
+					<p class="caption">Код 4. SVG като background-image </p>
+
+				<h4> 5. Използване на &lt;embed&gt; таг </h4>
+					<p><span class = "tag">&lt;embed&gt;</span>е предназначен да се използва за интегриране на „външно приложение“ или „интерактивно съдържание“. Въпреки че е подобен на<span class = "tag">&lt;object&gt;</span>,<span class = "tag">&lt;embed&gt;</span>не се използва за HTML спецификация. Поддържа се от повечето браузъри и често се използва за внедряването на Flash плъгини. Въпреки че може да се използва за SVG, не е препоръчително. </p>
+
+					<div class = "pieceOfCode includedThings">
+						<pre> <code>&lt;embed type="image/svg+xml" src="image.svg"/&gt; </code> </pre>
+					</div>
+					<p class="caption">Код 5. SVG в &lt;embed&gt; таг </p>
+
+				<h4> 6. В рамките на &lt;iframe&gt; </h4>
+					<p> Тъй като браузърите могат да изобразяват SVG документи сами по себе си, можете да заредите изображения в рамките на<span class = "tag">&lt;iframe&gt;</span>. Не лош метод, ако искате напълно да отделите SVG кода и скрипта от главната си страница. Манипулирането на SVG изображението обаче ще стане малко по-трудно. Не е много предпочитан метод. </p>
+
+					<div class = "pieceOfCode includedThings">
+						<pre> <code> &lt;iframe src="image.svg"&gt; Your browser does not support iframes &lt;/iframe&gt; </code> </pre>
+					</div>
+					<p class="caption">Код 6. SVG в &lt;iframe&gt; таг </p>
+
+				<h4> Заключение </h4>
+					<p> За най-много функционалности използвайте<span class = "tag">&lt;object&gt;</span>. Като алтернатива може да ползвате вградения метод с<span class = "tag">&lt;svg&gt;</span>тага, за да спестите HTTP заявка, но имайте предвид, че няма да бъде кеширано. Ако просто искате да използвате SVGs като всяко друго изображение - статично, използвайте <span class = "tag">&lt;img&gt;</span>или<span class = "tag">background-image</span>. Можете да използвате <span class = "tag">&lt;iframe&gt;</span>и<span class = "tag">&lt;embed&gt;</span>, но не са най-добрите възможности и не се много предпочитат. </p>
+
+					<p> В <span class = "imp">Таблица1</span> може да видите какво позволяват различните начини за вграждане на SVG. </p>
+			</article>
+			<section id = "infoTable">
+				<table>
+					<thead>
+						<tr>
+							<th>  </th>
+							<th> Object </th>
+							<th> Inline </th>
+							<th> Img </th>
+							<th> Background-image </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th> CSS манипулации </th>
+							<td> Да </td>
+							<td> Да </td>
+							<td> Вграден* </td>
+							<td> Вграден* </td>
+						</tr>
+						<tr>
+							<th> JS манипулации </th>
+							<td> Да </td>
+							<td> Да </td>
+							<td> Не </td>
+							<td> Не </td>
+						</tr>
+						<tr>
+							<th> SVG анимации </th>
+							<td> Да </td>
+							<td> Да </td>
+							<td> Да </td>
+							<td> Да </td>
+						</tr>
+						<tr>
+							<th> Интерактивни SVG анимации </th>
+							<td> Да </td>
+							<td> Да </td>
+							<td> Не </td>
+							<td> Не </td>
+						</tr>
+					</tbody>
+				</table>
+				<p class = "caption"> Таблица 1. Възможности в зависимост от използването </p> 
+				<p> * - Вграден значи, че нещата работят, но само ако CSS &lt;style&gt; е вграден в рамките на SVG кода. </p>	
+			</section>
+		</article>
+	</section>
+
+	<section>
+		<header><h3 id = "fig"> Примерни SVG фигури </h3> </header>
+		<article id="formes">
+			<p> SVGs се дефинират, използвайки eXtensible Markup Language (<span class = "imp"> XML </span>), който използва тагове като HTML, но е по-стриктен. Например, не трябва да забравяме затварящ таг. </p>
+			<p> SVG има някои предварително дефинирани форми, които могат да бъдат използвани. <span class="numSource"><a href="#s6">[6]</a></span> </p>
+						<!-- there is the <g> element, which is used to group several basic shapes together.-->
+			<ul>
+				<li> <span class = "characteristics"> Кръг </span> 
+					<p><span class = "tag">&lt;cirlcle&gt;</span>елементът се използва за създаването на кръг. Атрибутите <span class = "attr">cx </span> и <span class = "attr"> cy </span> дефинират x и y кординатите на центъра на кръга. Ако се пропуснат, центърът на кръга ще е (0,0). Атрибутът <span class = "attr">r</span> дефинира радиуса на кръга. </p>
+
+					<div class = "example">
+						<pre>  <code>&lt;svg width="200" height="140"&gt; 
+						   &nbsp;&nbsp;&nbsp;&lt;circle cx="100" cy="60" r="50" stroke-width="2" stroke="#6E8898" fill="#fff" /&gt; 
+						   &nbsp;&nbsp;&lt;/svg&gt; 
+						</code> </pre>
+					</div>
+					<p class = "caption fixed"> Код 7. Създаване на кръг </p>
+
+					<figure>
+						<svg width="200" height="140" class="form">
+							<circle cx="100" cy="60" r="50" stroke-width="2" stroke="#6E8898" fill="#fff" />
+						</svg>
+						<figcaption class="caption2">Фигура 3. Кръг </figcaption>
+					</figure>
+				</li>
+
+				<li> <span class="characteristics"> Правоъгълник </span>
+					<p><span class = "tag">&lt;rect&gt;</span>елементът се използва за създаването на правоъгълник и негови вариации. Атрибутите <span class = "attr"> width </span> и <span class = "attr"> height </span> дефинират височината и широчината на правоъгълника. 
+					 Можем да заоблим върховете на правоъгълника като дефинираме <span class = "attr"> rx </span> и <span class = "attr"> ry </span> атрибутите като съответно задаваме колко заоблени да се получат.</p>
+
+					<p> CSS свойството <span class = "attr"> fill </span> дефинира цвета на запълването на елемента, а <span class = "attr"> stroke </span> дефинира цвета на рамката му като със свойството <span class = "attr"> stroke-width </span> се дефинира дебелината ѝ. С <span class = "attr"> fill-opacity </span> се променя прозрачността на запълващия фигурата цвят - приема стойности от 0 до 1, а с <span class = "attr"> stroke-opacity </span> се променя на рамката.
+					Може да се дефинира прозрачността на целия елемент с <span class = "attr"> opacity </span> свойството. </p>
+
+					<div class = "example">
+						<pre> <code> &lt;svg width="250" height="130"&gt; 
+						&nbsp;&nbsp;&nbsp;&lt;rect width="250" height="100" rx="40" ry="40" 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style = "fill:#420039; stroke: #6E8898 ;stroke-width:2;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fill-opacity:0.4;stroke-opacity:0.6"/&gt;
+						&nbsp;&nbsp;&lt;/svg&gt; </code> </pre>
+					</div>
+					<p class = "caption fixed"> Код 8. Създаване на правоъгълник </p>
+
+					<figure>
+						<svg width="250" height="130" class="form">
+		 					 <rect width="250" height="100" rx="40" ry="40" style="fill:#420039; stroke: #6E8898 ;stroke-width:2; fill-opacity:0.4;stroke-opacity:0.6;" />
+						</svg>
+						<figcaption class="caption2"> Фигура 4. Правоъгълник </figcaption>
+					</figure>
+				</li>
+
+				<li> <span class="characteristics"> Елипса </span>
+					<p><span class = "tag">&lt;ellipse&gt;</span>елементът се използва за създаването на елипса. Разликата между елипса и кръг е, че тук имаме два радиуса за x и y, които се различават един от друг. С <span class = "attr"> cx </span> атрибута дефинираме х координатата на центъра на елипсата, а с <span class = "attr"> cy </span> се дефинира у координатата. С <span class = "attr"> rx </span> дефинираме хоризонталния радиус, а с <span class = "attr"> ry </span> дефинираме вертикалния.</p>
+
+					<div class = "example">
+						<pre> <code> &lt;svg width="300" height="120"&gt; 
+						&nbsp;&nbsp;&nbsp;&lt;ellipse cx="200" cy="60" rx="100" ry="50" 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style="fill:white;stroke:purple;stroke-width:2"/&gt;
+						&nbsp;&nbsp;&lt;/svg&gt; </code> </pre>
+					</div>
+					<p class = "caption fixed"> Код 9. Създаване на елипса </p>
+
+					<figure>
+						<svg height="120" width="300" class="form">
+		  					<ellipse cx="200" cy="60" rx="100" ry="50"
+		  						style="fill:white;stroke:purple;stroke-width:2" />
+						</svg>
+						<figcaption class="caption2"> Фигура 5. Елипса </figcaption>
+					</figure>
+				</li>
+
+				<li> <span class="characteristics"> Линия </span> 
+					<p><span class = "tag">&lt;line&gt;</span>елементът се използва за създаването на линия. 
+					С <span class = "attr"> x1 </span> дефинираме началото на линията по оста х, а с <span class = "attr"> y1 </span> по оста y. С <span class = "attr"> x2 </span> атрибута дефинираме края на линията по оста х, а с <span class = "attr"> y2 </span> по оста y. </p>
+
+					<div class = "example">
+						<pre> <code> &lt;svg height="120" width="250"&gt;
+						&nbsp;&nbsp;&nbsp;&lt;line x1="150" y1="20" x2="100" y2="100" 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style="stroke:purple; stroke-width:3"/&gt;
+						&nbsp;&nbsp;&lt;/svg&gt; </code> </pre>
+					</div>
+					<p class = "caption fixed"> Код 10. Създаване на линия </p>
+
+					<figure>
+						<svg height="120" width="250" class="form">
+		  					<line x1="150" y1="20" x2="100" y2="100" style="stroke:purple;stroke-width:3" />
+						</svg>
+						<figcaption class="caption2"> Фигура 6. Линия </figcaption>
+					</figure>
+				</li>
+
+				<li> <span class="characteristics"> Многоъгълник </span>
+					<p><span class = "tag">&lt;polygon&gt;</span>елементът се използва за създаването на графика, която да съдържа поне три страни - използват се прави линии и формата е затворена. 
+					Атрибутът <span class = "attr"> points </span> дефинира х и у координатите на всеки връх. </p>
+
+					<div class = "example">
+						<pre> <code> &lt;svg height="130" width="300"&gt; 
+							&nbsp;&nbsp;&nbsp;&lt;polygon points="180,10 140,110 240,50 120,50 220,110"
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style="fill:purple;stroke:#2F7489;stroke-width:4;fill-rule:nonzero;"/&gt;
+							&nbsp;&nbsp;&lt;/svg&gt; 
+						</code> </pre>
+					</div>
+					<p class = "caption fixed"> Код 11. Създаване на многоъгълник </p>
+
+					<figure>
+						<svg height="130" width="300" class="form">
+							<polygon points="180,10 140,110 240,50 120,50 220,110"
+						  	style="fill:purple;stroke:#2F7489;stroke-width:4;fill-rule:nonzero;" />
+						</svg>
+						<figcaption class="caption2"> Фигура 7. Многоъгълник </figcaption>
+					</figure>
+				</li>
+
+				<li> <span class="characteristics"> Начупена линия </span> 
+					<p><span class = "tag">&lt;polyline&gt;</span>елементът се използва за създаването на всякакви форми, съставени единствено от прави линии, които са свързани в няколко точки. 
+					Атрибутът <span class = "attr">points</span> дефинира лист от точки - двойки от х и у координати, необходими за нарисуването на начупената линия. </p>
+
+					<div class = "example">
+						<pre> <code> &lt;svg height="130" width="300"&gt;
+						&nbsp;&nbsp;&nbsp;&lt;polyline points="100,10 130,10 130,50 170,50 170,90 210,90 210,110"
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style="fill:white;stroke:purple;stroke-width:4"/&gt;
+						&nbsp;&nbsp;&lt;/svg&gt; 
+					</code> </pre>
+					</div>
+					<p class = "caption fixed"> Код 12. Създаване на начупена линия </p>
+
+					<figure>					
+						<svg height="130" width="300" class="form">
+							<polyline points="100,10 130,10 130,50 170,50 170,90 210,90 210,110"
+					  		style="fill:white;stroke:purple;stroke-width:4" />
+						</svg>
+						<figcaption class="caption2"> Фигура 8. Начупена линия </figcaption>
+					</figure>
+				</li>
+
+				<li> <span class="characteristics"> Път </span>  
+					<p><span class = "tag">&lt;path&gt;</span>елементът се използва за дефиниране на "път". Може да се използва за създаването на линии, криви, дъги и др, както и да се използва с текст за създаването на текст, който се движи заедно с "пътя". Следващите команди се използват за данните на пътя. </p>
+						<ul>
+							<li> <span class = "attr">M </span>= премести до </li>
+							<li> <span class = "attr">L </span>= линия до </li>
+							<li> <span class = "attr">H </span>= хоризонтална линия до </li>
+							<li> <span class = "attr">V </span>= вертикална линия до </li>
+							<li> <span class = "attr">C </span>= крива до </li>
+							<li> <span class = "attr">S </span>= гладка крива до </li>
+							<li> <span class = "attr">Q </span>= квадратична крива на Безие </li>
+							<li> <span class = "attr">T </span>=  гладка квадратична крива на Безие</li>
+							<li> <span class = "attr">A </span>= елипсовидна дъга </li>
+							<li> <span class = "attr">Z </span>= затваряне на пътя</li>
+						</ul>
+					<p> Горните команди могат също така да се напишат с малки букви. Главните букви значат, че позиционирането е абсолютно. Малките букви означават, че позиционирането е относително. </p>
+
+					<div class = "example">
+						<pre> <code> &lt;svg height="130" width="300"&gt;
+						&nbsp;&nbsp;&nbsp;&lt;path d="M210 20 L160 110 L260 110 Z" style="fill:white"/&gt;
+						&nbsp;&nbsp;&lt;/svg&gt; 
+						</code> </pre>
+					</div>
+					<p class = "caption fixed"> Код 13. Създаване на път </p>
+
+					<figure>
+						<svg height="130" width="300" class="form">
+		 					 <path d="M210 20 L160 110 L260 110 Z" style="fill:white" />
+						</svg>
+						<figcaption class="caption2"> Фигура 9. Път </figcaption>
+					</figure>
+
+					<p> <span class="imp">Примера</span> - дефинира се път, който започва от (210,20), рисува се линия до (160,110), оттам линия до (260,110) и накрая затваряне на пътя.
+					Могат да се правят много по сложни примери. Заради сложността на рисуването на пътища, се препоръчва да се използва SVG редактор за създаването на сложни графики. 
+
+					<a href = "https://codepen.io/chriscoyier/pen/evcBu" target="_blank"> По-сложен пример, използващ path</a>, стилизиран с CSS свойства <span class="numSource"><a href="#s7">[7]</a></span> </p>
+				</li>
+
+				<li> <span class="characteristics"> Текст </span> 
+					<p><span class = "tag">&lt;text&gt;</span>елементът се използва за дефиниране на текст. Атрибутите <span class = "attr"> x </span> и <span class = "attr"> y </span> се използват за позициониране на текста. Може да оформим текста с различните <span class = "attr"> font </span> свойства на CSS. Може да завъртаме текста с <span class = "attr"> rotate </span> , използвайки <span class = "attr"> transform </span>.
+					<span class = "tag">&lt;text&gt;</span>елементът може да се подреди в произволен брой подгрупи с<span class = "tag">&lt;tspan&gt;</span>елемента и така да им приложим различен стил. </p>
+
+					<div class = "example">
+						<pre> <code> &lt;svg height="100" width="200"&gt;
+							&nbsp;&nbsp;&nbsp;&lt;text x="20" y="20" fill="purple" font-size="30" stroke= "white"&gt; SVG 
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tspan x="90" y="20" fill="#2F7489" font-size="25" stroke-width="0.5"&gt;Text&lt;/tspan&gt; 
+							&nbsp;&nbsp;&nbsp;&lt;/text&gt; 
+							&nbsp;&nbsp;&nbsp;&lt;text x="30" y="40" fill="purple" font-size="20"
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform="rotate(30 20,40)"&gt; Rotated Text &lt;/text&gt;
+							&nbsp;&nbsp;&lt;/svg&gt; 
+						</code> </pre>
+					</div>
+					<p class = "caption fixed"> Код 14. Създаване на текст </p>
+
+					<figure>
+						<svg height="150" width="200" class="form">
+		 					<text x="20" y="20" fill="purple" font-size="30" stroke= "white" > SVG 
+		 					   <tspan x="90" y="20" fill="#2F7489" font-size = "25" stroke-width="0.5"> Text </tspan></text>
+							<text x="30" y="40" fill="purple" font-size="20" transform="rotate(30 20,40)">Rotated Text</text>
+						</svg>
+						<figcaption class="caption2"> Фигура 10. Текст </figcaption>
+					</figure>
+				</li>
+			</ul>
+		</article>
+	</section>
+
+	<section>
+		<header> <h3 id="others"> Други характеристики, които SVG специфицира </h3> </header>
+		<article id="listch">
+			<p> Освен споменатите досега основни форми, пътища и текст, SVG има и други характеристики: <span class = "numSource"><a href="#s6">[6]</a></span>, <span class = "numSource"><a href="#s8">[8]</a></span> </p>
+			<ul>
+				<li> <span class = "characteristics">Рисуване (Оцветяване) </span> - запълване и очертаване - <span class="attr">fill</span> и <span class="attr">stroke</span> свойствата, използване на плътни цветове, градиенти, прозрачност и др. 
+					<p> <span class="imp">SVG градиенти</span>: Градиентът е плавен преход от един цвят към друг. Също така към един и същи елемент могат да бъдат приложени няколко цветови прехода. Има два основни типа градиенти в SVG: </p>
+					<ul>
+						<li> Линеен градиент 
+							<p> <span class="tag">&lt;linearGradient&gt;</span>елементът се използва за дефинирането на линеен градиент. Този таг трябва да се постави в рамките на<span class="tag">&lt;defs&gt;</span>тага. <span class = "tag">&lt;defs&gt;</span>елементът съдържа дефиниции на специални елементи като градиенти,филтри. 
+							Линейните градиенти могат да бъдат дефинирани като хоризонтални, вертикални или ъглови градиенти - разликата идва от това какви стойности приемат <span class="attr">х1</span>, <span class="attr">x2</span>, <span class="attr">у1</span> и <span class="attr">у2</span> координатите.</p>
+
+							<p> <span class="attr">id</span> атрибутът задава уникално име на градиента. <span class="attr">x1</span>, <span class="attr">x2</span>, <span class="attr">y1</span> и <span class="attr">y2</span> атрибутите дефинират началната и крайната позиция на градиента. 
+							Цветовата гама на градиента може да бъде съставена от два или повече цвята. Всеки цвят се специфицира с<span class="tag">&lt;stop&gt;</span>таг. 
+							<span class="attr">offset</span> атрибутът се използва за определянето на това къде започва и завършва цветът на градиента.
+							<span class="attr">fill</span> атрибутът свързва графичния елемент с градиента, използвайки дефинираното <span class="attr">id</span>. </p>
+
+							<div class = "example">
+								<pre> <code> &lt;svg height="150" width="200"&gt;
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;defs&gt; 
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%"&gt;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;stop offset="0%" style="stop-color:rgb(180,0,255);stop-opacity:1"/&gt;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1"/&gt; 
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/linearGradient&gt;
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;/defs&gt;  
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;ellipse cx="60" cy="85" rx="60" ry="35" fill="url(#grad)"/&gt; 
+								&nbsp;&nbsp;&lt;/svg&gt;  </code> </pre>
+							</div>
+							<p class = "caption fixed"> Код 15. SVG линеен градиент </p>
+
+							<figure>
+								<svg height="150" width="200" class="animation">
+	  								<defs>
+	   						    		<linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+	      									<stop offset="0%" style="stop-color:rgb(180,0,255);stop-opacity:1"/>
+	      									<stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1"/>
+	    								</linearGradient>
+	  								</defs>
+	  								<ellipse cx="60" cy="85" rx="60" ry="35" fill="url(#grad)"/>
+								</svg>
+								<figcaption class="caption2"> Фигура 11. Линеен градиент </figcaption>
+							</figure>
+						</li>
+
+						<li> Радиален градиент 
+							<p> <span class="tag">&lt;radialGradient&gt;</span>елементът се използва за дефинирането на радиален градиент. Този таг трябва да се постави в рамките на<span class="tag">&lt;defs&gt;</span>тага. </p>
+							<p> <span class="attr">cx</span>, <span class="attr">cy</span> и <span class="attr">r</span> атрибутите определят най-външния кръг, който се получава, а <span class="attr">fx</span> и <span class="attr">fy</span> определят най-вътрешния кръг. </p>
+
+							<div class = "example">
+								<pre> <code> &lt;svg height="150" width="200"&gt; 
+									&nbsp;&nbsp;&nbsp;&nbsp;&lt;defs&gt; 
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"&gt; 
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;stop offset="100%" style="stop-color:rgb(180,0,255);stop-opacity:1"/&gt; 
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0"/&gt; 
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/radialGradient&gt; 
+									&nbsp;&nbsp;&nbsp;&nbsp;&lt;/defs&gt;  
+									&nbsp;&nbsp;&nbsp;&nbsp;&lt;ellipse cx="60" cy="85" rx="60" ry="35" fill="url(#grad1)"/&gt; 
+									&nbsp;&nbsp;&lt;/svg&gt; </code> </pre>
+							</div>
+							<p class = "caption fixed"> Код 16. SVG радиален градиент </p>
+
+							<figure>
+								<svg height="150" width="200" class="animation">
+	  								<defs>
+	   						    		<radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+	   						    			<stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0"/>
+	      									<stop offset="100%" style="stop-color:rgb(100,0,255);stop-opacity:1"/>
+	    								</radialGradient>
+	  								</defs>
+	  								<ellipse cx="60" cy="85" rx="60" ry="35" fill="url(#grad1)"/>
+								</svg>
+								<figcaption class="caption2"> Фигура 12. Радиален градиент </figcaption>
+							</figure>
+						</li>
+					</ul>
+				</li>
+
+				<li> <span class = "characteristics"> Изрязване, маскиране и композиране </span> - използване на елементи за очертаване на региони, които могат да бъдат нарисувани, променяне на видимостта на части от елементите, премахване на сегменти от елементи. </li>
+
+				<li> <span class = "characteristics"> Филтри </span> - графични ефекти, които да се приложат на елементи, като замъгляване, осветление, настройки на цветове. 
+					<p> Всички SVG филтри се дефинират в<span class = "tag">&lt;defs&gt;</span>елемента.
+					<span class = "tag">&lt;filter&gt;</span>елементът се използва за дефиниране на SVG филтър. Има задължителен <span class = "attr">id</span> атрибут, който го идентифицира. Така графичният елемент сочи към филтъра, който ползва, чрез това id. </p>
+					<ul>
+						<li> <span class="imp">SVG Blur ефект (Замъгляване) </span>
+							<p> <span class = "tag">&lt;feGaussianBlur&gt;</span>елементът се използва за създаването на замъгляващ ефект. 
+							С <span class="attr">in="SourceGraphic"</span> се определя, че ефектът се създава за целия елемент. <span class="attr">stdDeviation</span> атрибутът определя колко замъглен да стане обекта. 
+							В <span class="tag">&lt;rect&gt;</span>елемента <span class="attr">filter</span> атрибутът свързва елемента с филтъра, чийто <span class="attr">id</span> е посочен. </p>
+
+							<div class = "example">
+								<pre> <code> &lt;svg height="120" width="180"&gt; 
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;defs&gt; 
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;filter id="f1" x="0" y="0"&gt; 
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;feGaussianBlur in="SourceGraphic" stdDeviation="15"/&gt; 
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/filter&gt; 
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;/defs&gt; 
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;rect width="120" height="100" stroke="white" stroke-width="2" 
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fill="purple" filter="url(#f1)"/&gt; 
+								&nbsp;&nbsp;&lt;/svg&gt;
+								</code></pre>
+							</div>
+							<p class = "caption fixed"> Код 17. SVG Blur ефект </p>
+
+							<figure>
+								<svg height="120" width="180" class="animation">
+								  <defs>
+								    <filter id="f1" x="0" y="0">
+								      <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+								    </filter>
+								  </defs>
+								  <rect width="120" height="100" stroke="white" stroke-width="2"
+								  fill="purple" filter="url(#f1)"/>
+								</svg>
+								<figcaption class="caption2"> Фигура 13. Замъглен елемент </figcaption>
+							</figure>
+						</li>
+					</ul>
+				</li>
+
+				<li> <span class = "characteristics">Линкове</span> - хиперлинкове към други документи. </li>
+				<li> <span class = "characteristics">Интерактивност</span> - слагане на обработчици на събития (event handlers), използвайки JavaScript. </li>
+				<li> <span class = "characteristics">DOM скриптове</span> - достъпване и манипулиране на SVG елементи, използвайки DOM. </li>
+
+				<li> <span class = "characteristics"> Анимации </span> - вградени анимации, използвайки Synchronized Multimedia Integration Language (SMIL).  <span class="numSource"><a href="#s9">[9]</a></span> 
+					<p> <span class = "imp">SMIL</span> позволява:
+						<ul>
+							<li> анимирането на числовите атрибути на елемент (x, y, ...) </li>
+							<li> анимиране чрез трансформиращи атрибути - translate, rotate </li>
+							<li> анимиране на атрибутите за цветове </li>
+							<li> анимиране чрез движение по път </li>
+						</ul>
+						Това се постига чрез добавяне на<span class="tag">&lt;animate&gt;</span>елемента в елемента, който искаме да анимираме.
+						Ще дадем пример за последния вид анимация - проследяване на път.
+					</p>
+					<p>Чрез<span class="tag">&lt;animateMotion&gt;</span>тага можем да анимираме позицията на елемента и да го въртим според зададения път в <span class="attr">path</span> атрибута. 
+					Задавайки стойността на атрибута <span class="attr">repeatCount</span> на "indefinite", задаваме, че анимацията трябва да се изпълнява докато съществува SVG изображението. Атрибутът <span class="attr">dur</span> задава продължителността на анимацията.</p>
+					
+					<div class = "example">
+						<pre> <code> &lt;svg height="140" width="240"&gt;
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;rect x="20" y="20" width="200" height="100" 
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fill="white" stroke="purple" stroke-width="3"/&gt;
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;rect x="0" y="0" width="20" height="20" 
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fill="purple" stroke="black" stroke-width="1"&gt;  
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;animateMotion  path="M 160,100 H 70 Q 40,100 40,70 Q 40,40 60,40 H 170
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Q 190,40,190,70 Q 190,100,160,100Z" 
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dur="3s" repeatCount="indefinite" rotate="auto"/&gt; 
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/rect&gt; 
+							&nbsp;&nbsp;&lt;/svg&gt; 
+						</code> </pre>
+					</div>
+					<p class = "caption fixed"> Код 18. SVG SMIL анимация </p>
+
+					<figure>
+						<svg width="240" height="140" class="animation">
+							<rect x="20" y="20" width="200" height="100" fill="white" stroke="purple" stroke-width="3"/>
+		  					<rect x="0" y="0" width="20" height="20" fill="purple" stroke="black" stroke-width="1">
+		   						 <animateMotion
+		       									path="M 160,100 H 70 Q 40,100 40,70 Q 40,40 60,40 H 170 Q 190,40,190,70 Q 190,100,160,100Z"
+		       									dur="3s" repeatCount="indefinite" rotate="auto"/>
+		  					</rect>
+						</svg>
+						<figcaption class="caption2"> Фигура 14. Анимация </figcaption>
+					</figure>
+				</li>
+
+				<li> <span class = "characteristics"> Шрифтове </span> - текстови глифове (форми на изображението на букви), дефинирани в SVG файл, могат да се използват като стандартен шрифт. </li>
+				<li> <span class = "characteristics"> Метаданни </span> - заглавия, описания, създатели и други свойства на SVG изображението. </li>
+			</ul>
+		</article>
+	</section>
+
+	<section>
+		<header> <h3 id = "tryexample"> Изпробване на SVG код </h3> </header>
+		<article class = "includedThings" id="console">
+			<p><iframe src="https://mdn.mozillademos.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web$samples/Playable_code?revision=1649346" ></iframe></p>
+			<p class = "caption"> Конзола за изпробване на SVG код </p> 
+			<p> Може да изпробвате някои елементи на SVG. Дадените фигури са примерни. Може да ги изтриете и да напишете свой код. С бутона Reset се връщате към началното състояне. <span class="numSource"><a href="#s4">[4]</a></span> </p>
+		</article>
+	</section>
+	<hr/>
+	
+	<section>
+		<header> <p id = "sources"> Източници: </p></header>  
+		<article id = "sourcediv"> 
+			<p id="s1">[1] MDN contributors, "Adding vector graphics to the Web", публикувано на: Oct 18 2020,<a href = "https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web" target="_blank"> https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web</a>, последно посетен на 28-11-2020 </p>
+
+			<p id="s2">[2] Jeremy Girard, "Why You Should Be Using SVG on Your Website", публикувано на: Feb 18 2020, <a href="https://www.lifewire.com/using-svg-in-web-design-3470014" target="_blank">https://www.lifewire.com/using-svg-in-web-design-3470014</a>, последно посетен на 31-10-2020 </p>
+
+			<p id="s3">[3] Richard Mattka, "All you need to know about SVG on the web", публикувано на: March 05 2019, <a href="https://www.creativebloq.com/features/all-you-need-to-know-about-svg-on-the-web" target="_blank">https://www.creativebloq.com/features/all-you-need-to-know-about-svg-on-the-web</a>, последно посетен на 28-11-2020 </p>
+
+			<p id="s4">[4] Jake Giltsoff, "SVG ON THE WEB - A Practical Guide", June 16 2015, <a href ="https://svgontheweb.com" target="_blank">https://svgontheweb.com</a>, последно посетен на 31-10-2020 </p>
+
+			<p id="s5">[5] Craig Buckler, "How to Add Scalable Vector Graphics (SVG) to Your Web Page", публикувано на: May 30 2012,<a href ="https://www.sitepoint.com/add-svg-to-web-page" target="_blank"> https://www.sitepoint.com/add-svg-to-web-page</a>, последно посетен на 28-11-2020 </p>
+		
+			<p id="s6">[6] SVG Tutorial, <a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank">https://www.w3schools.com/graphics/svg_intro.asp</a>, последно посетен на 29-11-2020 </p>
+
+			<p id="s7">[7] Chris Coyier, "Using SVG", публикувано на: May 02 2019, <a href="https://css-tricks.com/using-svg" target="_blank">https://css-tricks.com/using-svg</a>, последно посетен на 29-11-2020 </p>
+
+			<p id="s8">[8] Craig Buckler, "Scalable Vector Graphics: an Overview", публикувано на: May 11 2012, <a href ="https://www.sitepoint.com/svg-scalable-vector-graphics-overview/" target="_blank">https://www.sitepoint.com/svg-scalable-vector-graphics-overview/</a>, последно посетен на 28-11-2020 </p>
+			
+			<p id="s9">[9] MDN contributors, "SVG animation with SMIL", публикувано на: Nov 07 2019, <a href = "https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL" target="_blank"> https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL</a>, последно посетен на 27-11-2020 </p>
+		</article>
+	</section>
+	<footer>
+		<p id="author">Кристина Георгиева, ФН: 81614, 4 курс, Компютърни науки, Реферат по Уеб технологии </p>
+		<div id="back-top"><span><a href = #top> &uarr; </a></span></div>
+	</footer>
+</main>
+</body>
+</html>
